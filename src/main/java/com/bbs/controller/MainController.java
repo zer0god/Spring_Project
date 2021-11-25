@@ -15,28 +15,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bbs.service.UsersService;
 
+// url 전송 : http://localhost:8081/
+
 @Controller
-public class HomeController {
-	
-	@Inject // 얘 밑에 작성하면 알아서 생성됨
-	UsersService service;
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+public class MainController {
+
+	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
+	// 경로 찾아가기
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
-		logger.info("Welcome home! The client locale is {}.", locale);
+		// 작업
 		
-		service.check_id(null);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
+		// views 폴더의 "main", 만약 views/main/main이면 "main/main"
+		return "main/main";
 	}
 	
 }
