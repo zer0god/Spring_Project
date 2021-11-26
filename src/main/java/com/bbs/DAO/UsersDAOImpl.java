@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.bbs.vo.Authmail;
+import com.bbs.vo.Users;
 
 @Repository
 public class UsersDAOImpl implements UsersDAO {
@@ -41,6 +42,13 @@ public class UsersDAOImpl implements UsersDAO {
 		// 세션 접속 mapper의 deleteAuthmail 찾아가서 user_mail저장
 		sqlSession.delete(SESSION + ".deleteAuthmail", user_mail);
 
+	}
+
+	@Override
+	public void join(Users users) throws Exception {
+		sqlSession.insert(SESSION + ".join",  users);
+		
+		
 	}
 	
 

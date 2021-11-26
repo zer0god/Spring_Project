@@ -102,7 +102,7 @@
 	
 	<div class="col-lg-6"> <!-- 화면의 6/12의 크기 사용 -->
 		<div class="jumbotron" > 
-			<form method="POST" action="./join">
+			<form method="POST" action="./joinAction">
 				<h3 style="text-align: center;">회원가입</h3>
 				
 				<!-- 아이디 입력에 대한 공간 할당 -->
@@ -206,7 +206,7 @@
 				<div class="row">
 					<!-- 상세 주소 입력 -->
 					<div class="form-group col-sm-12 col-md-12 col-lg-12"> 
-						<input type="text" class="form-control" name="addr3" placeholder="상세 주소">
+						<input type="text" class="form-control" id="addr3" name="addr3" placeholder="상세 주소">
 					</div>
 				</div>
 

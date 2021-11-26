@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bbs.service.UsersService;
 import com.bbs.vo.Authmail;
+import com.bbs.vo.Users;
 
 // url 전송 : http://localhost:8081/
 
@@ -78,9 +79,21 @@ public class MainController {
 		// String user_mail, String auth_num자리에
 		// Authmail authmail로 받아와도 가능 대신 파라미터와 Authmail내에 프로퍼티명과 같아야함
 		
-		
-
-		return null; // @ResponseBody가 없을 때 0이 들어가면 URL이 0인 곳으로 이동.
+		return usersService.checkAuthnum(authmail) + ""; 
+		// @ResponseBody가 없을 때 0이 들어가면 URL이 0인 곳으로 이동.
+		// 		int result = usersService.setAuthnum(user_mail);
+		//		return result + ""; 와 같은 것임
 	}
-	
+	// url 패턴이 'path/joinAction' 일 경우
+	@RequestMapping(value ="/joinAction", method=RequestMethod.POST)
+	public String joinAction(Users users, String addr1,String addr2,String addr3) throws Exception{
+		
+		users.setUser_addr(addr1 + " " + addr2 + " " + addr3);
+		usersService.joinAction(users);
+		
+		return "redirect:/login";
+		// 보이는 url /joinAction 실제는 return값의 url
+		// 회원가입 된 상태에서는 url 변경해줘야하므로 redirect
+		// redirect:/login => http://localhost:8081/loign
+	}
 }

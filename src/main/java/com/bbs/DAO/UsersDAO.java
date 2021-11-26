@@ -1,6 +1,7 @@
 package com.bbs.DAO;
 
 import com.bbs.vo.Authmail;
+import com.bbs.vo.Users;
 
 public interface UsersDAO {
 
@@ -9,5 +10,6 @@ public interface UsersDAO {
 	public void setAuthnum(Authmail authmail) throws Exception;
 	public void resetAuthnum(Authmail authmail) throws Exception;
 	public void deleteAuthmail(String user_mail) throws Exception;
+	public void join(Users users) throws Exception;
 
 }
