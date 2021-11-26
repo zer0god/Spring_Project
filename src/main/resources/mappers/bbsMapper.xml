@@ -9,7 +9,6 @@
 		SELECT user_id
 		FROM USERS
 		WHERE user_id = #{user_id}
-	
 	</select>
 		
 	<!-- 이메일 인증번호 불러오기 SQL -->
@@ -48,5 +47,13 @@
 				#{user_gender},#{user_email},#{user_addr}
 				)
 	</insert>
+	
+		<!-- 로그인 SQL -->
+	<select id="login" resultType="com.bbs.vo.Users"> <!-- 반환타입 중요 -->
+		SELECT *
+		FROM USERS
+		WHERE user_id = #{user_id}
+		AND   user_pw = #{user_pw}
+	</select>
 	
 </mapper>

@@ -1,6 +1,7 @@
 package com.bbs.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -86,7 +87,7 @@ public class MainController {
 	}
 	// url 패턴이 'path/joinAction' 일 경우
 	@RequestMapping(value ="/joinAction", method=RequestMethod.POST)
-	public String joinAction(Users users, String addr1,String addr2,String addr3) throws Exception{
+	public String joinAction(Users users, String addr1, String addr2, String addr3) throws Exception{
 		
 		users.setUser_addr(addr1 + " " + addr2 + " " + addr3);
 		usersService.joinAction(users);
@@ -94,6 +95,26 @@ public class MainController {
 		return "redirect:/login";
 		// 보이는 url /joinAction 실제는 return값의 url
 		// 회원가입 된 상태에서는 url 변경해줘야하므로 redirect
-		// redirect:/login => http://localhost:8081/loign
+		// redirect:/login == http://localhost:8081/loign
+	}
+	
+	@RequestMapping(value="/loginAction", method=RequestMethod.POST)
+	// 결과값 필요없으므로 responsebody 필요없음
+	public String loginAction(Users users, HttpSession session) throws Exception{
+		
+		int result = usersService.loginAction(users);
+		
+		if(result == 0) {
+			session.setAttribute("user_id", users.getUser_id());
+			// 페이지 이동 -> localhost:8081/
+			
+		}
+		else {
+			// 메세지를 전달 (로그인 정보가 잘못되었습니다.)
+			// 페이지 이동 -> localhost:8081/login
+			return "redirect:/login";
+		}
+		
+		return null;
 	}
 }

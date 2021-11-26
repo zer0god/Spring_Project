@@ -10,5 +10,6 @@ public interface UsersService {
 	public int setAuthnum(String user_mail) throws Exception;
 	public int checkAuthnum(Authmail authmail) throws Exception; // 결과값 존재
 	public void joinAction(Users users) throws Exception;// 반환타입 필요없음
+	public int loginAction(Users users) throws Exception;
 
 }
