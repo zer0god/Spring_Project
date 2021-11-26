@@ -20,12 +20,6 @@
 
 <script src="${path}/resources/js/join.js" charset="UTF-8"> </script>
 
-<script>
-$(document).ready(function(){
-	var msg = '${msg}';
-	if(msg != null && msg != '') alert(msg);
-});
-</script>
 
 </head>
 <body>
@@ -317,6 +311,12 @@ $(document).ready(function(){
 </div>
 <!-- 주소검색 모달 종료-->
 
+<script>
+$(document).ready(function(){
+	var msg = '${msg}';
+	if(msg != null && msg != '') alert(msg);
+});
+</script>
 </body>
 
 </html>

@@ -133,8 +133,8 @@ $(document).ready(function() {
 				auth_num : auth_num
 			},
 			dataType : 'text',
-			success : function(data) {
-				if(data == 0){
+			success : function(data) { // 문자열로 받음
+				if(data == 0){ // 문자열. 자바스트립트의 같음
 					alert('인증 되었습니다.');
 					$('#user_email').val(user_mail); // user_mail을 user_mail로 변경
 					$('#emailAuthModal').modal('hide');

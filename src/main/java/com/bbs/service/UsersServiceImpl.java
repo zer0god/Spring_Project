@@ -50,7 +50,7 @@ public class UsersServiceImpl implements UsersService {
 		
 		Integer exist = dao.getAuthnum(to);
 		
-		if(exist != null)dao.setAuthnum(new Authmail(to, auth_num)); // 주소생성 후 바로 넘겨주기
+		if(exist == null)dao.setAuthnum(new Authmail(to, auth_num)); // 주소생성 후 바로 넘겨주기
 					else dao.resetAuthnum(new Authmail(to, auth_num));
 			
 		

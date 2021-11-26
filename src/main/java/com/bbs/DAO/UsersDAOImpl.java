@@ -35,6 +35,13 @@ public class UsersDAOImpl implements UsersDAO {
 	public void resetAuthnum(Authmail authmail) throws Exception {
 		sqlSession.update(SESSION + ".resetAuthnum",authmail);
 	}
+
+	@Override
+	public void deleteAuthmail(String user_mail) throws Exception {
+		// 세션 접속 mapper의 deleteAuthmail 찾아가서 user_mail저장
+		sqlSession.delete(SESSION + ".deleteAuthmail", user_mail);
+
+	}
 	
 
 }

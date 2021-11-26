@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bbs.service.UsersService;
+import com.bbs.vo.Authmail;
 
 // url 전송 : http://localhost:8081/
 
@@ -62,12 +63,24 @@ public class MainController {
 	}
 	// url 패턴이 'path/sendAuthMail' 일 경우
 	@RequestMapping(value="/sendAuthMail", method = RequestMethod.GET)
+	// 반환값을 페이지에 출력
 	@ResponseBody
 	public String sendAuthMail(String user_mail) throws Exception{
 		
 		int result = usersService.setAuthnum(user_mail);
 		return result + "";
 	}
-	
+	// url 패턴이 'path/mailAuth' 일 경우
+	@RequestMapping(value="/mailAuth", method=RequestMethod.POST)
+	// 반환값을 페이지에 출력
+	@ResponseBody
+	public String mailAuth(Authmail authmail) throws Exception{
+		// String user_mail, String auth_num자리에
+		// Authmail authmail로 받아와도 가능 대신 파라미터와 Authmail내에 프로퍼티명과 같아야함
+		
+		
+
+		return null; // @ResponseBody가 없을 때 0이 들어가면 URL이 0인 곳으로 이동.
+	}
 	
 }
