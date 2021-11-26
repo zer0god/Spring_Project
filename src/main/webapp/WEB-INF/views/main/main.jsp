@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>JSP 게시판</title>
 <meta http-equiv="Conetent-Type" content="text/html; charset=UTF-8">
 <meta name = "viewport" content="width=device-width" initial-scale="1">
@@ -12,6 +13,14 @@
 <link rel="stylesheet" href="${path}/resources/css/custom.css">
 <script src = "https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src = "${path}/resources/js/bootstrap.js"></script>
+
+<script>
+$(document).ready(function(){
+	var msg = '${msg}';
+	if(msg != null && msg != '') alert(msg);
+});
+</script>
+
 </head>
 <body>
 
@@ -32,7 +41,7 @@
 		<span class="icon-bar"></span>
 		</button>
 		<!--  a : url을 이동시켜주는 HTML 태그 href="" 속성에 경로 지정-->
-		<a class="navbar-brand" href="${path}">JSP 게시판</a>
+		<a class="navbar-brand" href="${path}/">JSP 게시판</a>
 	</div>
 	<!-- 네비게이션 헤더 종료 -->
 	
@@ -43,7 +52,7 @@
 		<!-- ul : 순서가 없는 리스트를 만들어주는 HTML 태그 -->
 		<ul class="nav navbar-nav">
 		<!-- li : 리스트 하나의 요소를 만들어주는 HTML 태그-->
-			<li class ="active"><a href="${path}">메인</a></li>
+			<li class ="active"><a href="${path}/">메인</a></li>
 			<li><a href="${path}/bbs">게시판</a></li>
 		</ul>
 		<!-- 메인 메뉴 종료 -->
