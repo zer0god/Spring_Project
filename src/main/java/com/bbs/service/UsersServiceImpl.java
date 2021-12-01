@@ -77,7 +77,7 @@ public class UsersServiceImpl implements UsersService {
 			Session s = Session.getInstance(p, auth); // 세션 받아옴
 			s.setDebug(true); // 디버깅
 			
-			MimeMessage msg = new MimeMessage(s); // 세션을 이용해 완경 맞추기
+			MimeMessage msg = new MimeMessage(s); // 세션을 이용해 환경 맞추기
 			
 			// Address로 받아오기
 			Address fromAddr = new InternetAddress(from);

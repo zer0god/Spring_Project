@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bbs.service.UsersService;
 import com.bbs.vo.Authmail;
@@ -100,21 +101,41 @@ public class MainController {
 	
 	@RequestMapping(value="/loginAction", method=RequestMethod.POST)
 	// 결과값 필요없으므로 responsebody 필요없음
-	public String loginAction(Users users, HttpSession session) throws Exception{
+	public String loginAction(Users users, HttpSession session, RedirectAttributes ra) throws Exception{
 		
 		int result = usersService.loginAction(users);
+		String url = null;
 		
 		if(result == 0) {
 			session.setAttribute("user_id", users.getUser_id());
 			// 페이지 이동 -> localhost:8081/
-			
+			url = "redirect:/";
 		}
 		else {
 			// 메세지를 전달 (로그인 정보가 잘못되었습니다.)
 			// 페이지 이동 -> localhost:8081/login
+			ra.addFlashAttribute("msg", "로그인 정보가 일치하지 않습니다.");
 			return "redirect:/login";
 		}
 		
-		return null;
+		return url;
 	}
+	
+	// url 패턴이 'path/logout' 일 경우
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception {
+		
+		session.invalidate();
+		
+		return "redirect:/";
+		
+	}
+	
+	// url 패턴이 'path/bbs' 일 경우
+	@RequestMapping(value = "/bbs", method = RequestMethod.GET)
+	public String bbs(Model model) throws Exception {
+		
+		return "bbs/bbs";
+	}
+	
 }

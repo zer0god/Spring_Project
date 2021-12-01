@@ -1,0 +1,45 @@
+https://dongil82.co.kr/ 
+ 특정영역에 포인터가 갔을때 마우스 포인터의움직임
+ 스크롤에 의한 움직임 
+
+https://www.coreana.com/ 
+ 메뉴의 풀다운 메뉴 효과
+ 메인화면의 가로로 부분적으로 움직임 효과
+
+
+http://www.prugio.com/main.aspx
+http://www.hillstate.co.kr/hills.aspx
+단지 설명 
+웹 매거진
+
+http://www.prugio.com/sale/sale.aspx
+유형별 버튼을 눌렀을때 아래로 나타나는 효과
+마이푸르지오 눌렀을때 메시지 알림참 기능
+푸르지오 홍보동영상 보기를 갤러리처럼 효과 
+
+
+http://www.lakecomo.co.kr/
+상단 주메뉴에 마우스를 올렸을때 전체메뉴가 상단에서 세로로 
+내려오는 효과
+
+
+https://www.dongyangex.co.kr/
+첫화면의 4가지 분할화면
+
+
+http://www.lottecon.co.kr/eng/#
+하단에 패밀리사이트에서 마우스 클릭시 나타나고
+버튼영역에 있을때는 보이지만 벗어나면 사라지게함
+
+
+https://www.raemian.co.kr/common/housingSearch/housingSearch.do
+단지 검색
+
+http://www.kumhoenc.com/main/index.asp?subM=boxPromote
+화면의 접혔다 펴졌다하는 기능
+
+
+https://www.shinsegae-enc.com/business/business_view.asp?vkind=2&lkind=s
+페이지 전체효과
+
+
