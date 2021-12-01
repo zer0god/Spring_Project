@@ -102,7 +102,7 @@
 		<update id="updateFile">
 		UPDATE UPLOADFILE
 		SET file_name = #{file_name}, file_realName =#{file_realName}
-		WHERE file_id = #{file_id}
+		WHERE boarder_id = #{boarder_id}
 	</update>
 	
 	
