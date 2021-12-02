@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.bbs.DAO.BbsDAO;
 import com.bbs.util.FileUpload;
 import com.bbs.vo.Boarder;
+import com.bbs.vo.Paging;
 import com.bbs.vo.UploadFile;
 
 @Service
@@ -122,8 +124,28 @@ public class BbsServiceImpl implements BbsService {
 		
 	}
 
-}
+	@Override
+	public HashMap<String, Object> bbs(int pageNumber) throws Exception {
 
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		int max = dao.getMaxBoarder_id(); // 결과값을 변수에 저장. 바로 중복으로 쓰면 시간 오래걸림
+		
+		List<Boarder> list = dao.getBbsList(max - (pageNumber-1) * 10);
+		Paging paging = new Paging(pageNumber, max);
+		
+		map.put("list", list);
+		map.put("paging", paging);
+		
+		return map;
+	}
+
+	@Override
+	public void deleteAction(int boarder_id) throws Exception {
+		dao.deleteBoarder(boarder_id);
+	}
+
+}
 
 
 
